@@ -1,0 +1,12 @@
+{
+  "name": "Universal Prompt Studio Indonesia",
+  "short_name": "Prompt Studio",
+  "description": "Prompt engine untuk menyusun prompt profesional lintas AI.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070914",
+  "theme_color": "#0b1020",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "96x96", "type": "image/svg+xml" }
+  ]
+}

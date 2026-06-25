@@ -1,0 +1,18 @@
+{
+  "name": "universal-prompt-studio-indonesia",
+  "version": "11.0.1",
+  "description": "Universal Prompt Studio Indonesia v11 hotfix with fixed command palette and stable modal behavior.",
+  "private": true,
+  "scripts": {
+    "start": "python scripts/serve.py",
+    "serve": "python scripts/serve.py"
+  },
+  "keywords": [
+    "prompt-engineering",
+    "prompt-builder",
+    "ai",
+    "indonesia",
+    "static-site"
+  ],
+  "license": "MIT"
+}

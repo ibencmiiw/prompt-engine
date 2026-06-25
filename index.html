@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Universal Prompt Studio Indonesia: prompt engine untuk menyusun prompt profesional lintas AI." />
+  <title>Universal Prompt Studio Indonesia v11</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigasi project">
+      <div class="brand-card">
+        <div class="brand-mark">UP</div>
+        <div>
+          <strong>Prompt Studio</strong>
+          <span>Indonesia v11</span>
+        </div>
+      </div>
+
+      <div class="command-mini" data-action="open-command">
+        <span>⌘K</span>
+        <p>Cari mode, template, istilah</p>
+      </div>
+
+      <div class="nav-block">
+        <p class="nav-label">Mode Project</p>
+        <div class="mode-list" id="modeList"></div>
+      </div>
+
+      <div class="nav-block">
+        <p class="nav-label">Workspace</p>
+        <button class="side-action" data-action="show-library"><span>▣</span> Prompt Library</button>
+        <button class="side-action" data-action="show-kitabs"><span>◎</span> Kitab Prompt</button>
+        <button class="side-action" data-action="export-json"><span>⇣</span> Export Project</button>
+        <button class="side-action" data-action="import-json"><span>⇡</span> Import Project</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <p>Universal Prompt Framework</p>
+        <small>Goal → Context → Style → Structure → Detail → Guardrail → Output</small>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button only-mobile" data-action="toggle-mobile-menu" aria-label="Buka menu">☰</button>
+        <div>
+          <p class="eyebrow">Universal Prompt Engine</p>
+          <h1 id="pageTitle">Musik Prompt Builder</h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost-button" data-action="fill-example">Isi Contoh</button>
+          <button class="ghost-button" data-action="reset-form">Reset</button>
+          <button class="theme-toggle" data-action="toggle-theme" aria-label="Ganti tema"><span id="themeIcon">☾</span></button>
+        </div>
+      </header>
+
+      <nav class="mobile-mode-strip" id="mobileModeStrip" aria-label="Mode project mobile"></nav>
+
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <div class="badge-row">
+            <span class="status-badge">Prompt Engine</span>
+            <span class="status-badge muted">Offline Ready</span>
+            <span class="status-badge muted">GitHub Pages</span>
+          </div>
+          <h2>Susun prompt yang rapi, jelas, dan siap dipakai ke banyak AI.</h2>
+          <p>Masukkan niat, konteks, gaya, struktur, detail teknis, dan batasan. Engine akan merangkai prompt final plus analisis kualitasnya.</p>
+        </div>
+        <div class="engine-map" aria-label="Prompt DNA">
+          <div class="map-line"></div>
+          <div class="dna-node" data-stage="goal"><strong>Goal</strong><span>tujuan</span></div>
+          <div class="dna-node" data-stage="context"><strong>Context</strong><span>cerita</span></div>
+          <div class="dna-node" data-stage="style"><strong>Style</strong><span>karakter</span></div>
+          <div class="dna-node" data-stage="structure"><strong>Structure</strong><span>alur</span></div>
+          <div class="dna-node" data-stage="guardrail"><strong>Guardrail</strong><span>batasan</span></div>
+        </div>
+      </section>
+
+      <section class="studio-grid">
+        <section class="builder-stack">
+          <div class="control-panel glass-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Engine Control</p>
+                <h3>Pengaturan Output</h3>
+              </div>
+              <span class="mini-pill" id="activeModePill">Musik</span>
+            </div>
+            <div class="control-grid">
+              <label class="select-field">
+                <span>Target AI</span>
+                <select id="targetAI">
+                  <option value="general">AI umum</option>
+                  <option value="chat">ChatGPT / Claude / Gemini</option>
+                  <option value="music">Suno / Udio / AI Musik</option>
+                  <option value="image">Image AI</option>
+                  <option value="video">Video AI</option>
+                  <option value="code">Coding AI</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span>Mode Prompt</span>
+                <select id="promptMode">
+                  <option value="structured">Terstruktur</option>
+                  <option value="compact">Ringkas</option>
+                  <option value="pro">Profesional</option>
+                  <option value="json">JSON Brief</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span>Bahasa Output</span>
+                <select id="outputLanguage">
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="English">English</option>
+                  <option value="Campuran Indonesia-English">Campuran</option>
+                </select>
+              </label>
+              <label class="select-field">
+                <span>Batas Karakter</span>
+                <input id="charLimit" type="number" min="300" max="8000" value="1200" />
+              </label>
+            </div>
+          </div>
+
+          <div class="builder-card glass-card">
+            <div class="panel-heading sticky-heading">
+              <div>
+                <p class="eyebrow">Brief Builder</p>
+                <h3 id="formTitle">Musik</h3>
+              </div>
+              <div class="heading-actions">
+                <button class="tiny-button" data-action="collapse-all">Tutup Semua</button>
+                <button class="tiny-button" data-action="expand-all">Buka Semua</button>
+              </div>
+            </div>
+            <div id="formContainer" class="form-container"></div>
+          </div>
+        </section>
+
+        <aside class="output-stack">
+          <section class="score-card glass-card">
+            <div class="score-top">
+              <div>
+                <p class="eyebrow">Prompt Health</p>
+                <h3 id="scoreLabel">0%</h3>
+              </div>
+              <div class="score-ring" id="scoreRing"><span id="scoreNumber">0</span></div>
+            </div>
+            <div class="score-bars" id="scoreBars"></div>
+            <div class="suggestion-box" id="suggestionBox"></div>
+          </section>
+
+          <section class="preview-card glass-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Final Prompt</p>
+                <h3>Siap Copy</h3>
+              </div>
+              <div class="char-counter"><span id="charCount">0</span>/<span id="charLimitLabel">1200</span></div>
+            </div>
+            <div class="preview-toolbar">
+              <button class="primary-button" data-action="copy-prompt">Copy</button>
+              <button class="ghost-button small" data-action="save-version">Save</button>
+              <button class="ghost-button small" data-action="download-txt">TXT</button>
+              <button class="ghost-button small" data-action="download-md">MD</button>
+            </div>
+            <pre id="promptOutput" class="prompt-output" tabindex="0"></pre>
+          </section>
+
+          <section class="engine-card glass-card">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Engine Breakdown</p>
+                <h3>Bagian yang Terbaca</h3>
+              </div>
+            </div>
+            <div class="breakdown-list" id="breakdownList"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="mobile-bottom-dock" aria-label="Aksi cepat mobile">
+    <button data-action="toggle-mobile-menu">Mode</button>
+    <button data-action="fill-example">Contoh</button>
+    <button data-action="copy-prompt">Copy</button>
+    <button data-action="show-kitabs">Kitab</button>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div>
+        <p class="eyebrow" id="drawerEyebrow">Panel</p>
+        <h3 id="drawerTitle">Panel</h3>
+      </div>
+      <button class="icon-button" data-action="close-drawer" aria-label="Tutup">×</button>
+    </div>
+    <div class="drawer-content" id="drawerContent"></div>
+  </aside>
+
+  <div class="command-modal" id="commandModal" hidden aria-hidden="true">
+    <div class="command-panel">
+      <div class="command-input-wrap">
+        <span>⌘K</span>
+        <input id="commandInput" placeholder="Cari mode, template, atau istilah..." />
+        <button data-action="close-command" aria-label="Tutup command palette">×</button>
+      </div>
+      <div class="command-results" id="commandResults"></div>
+    </div>
+  </div>
+
+  <input type="file" id="jsonImport" accept="application/json" hidden />
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
